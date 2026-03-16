@@ -3,29 +3,42 @@ class List {
         this.head = {
             value: val,
             next: null
-        }
+        };
         this.tail = this.head;
         this.size = 1;
     }
-    //function for to create new node
+
+    // Add node at end
     addNode(val) {
-        let newNode = {
+        const newNode = {
             value: val,
             next: null
-        }
+        };
+
         this.tail.next = newNode;
         this.tail = newNode;
-        this.size += 1;
+        this.size++;
     }
-    // traversing
+
+    // Traverse list
     traverse() {
-        let counter = 0;
-        let curNode = this.head;
-        while (counter < this.size) {
-            console.log(curNode);
-            curNode = curNode.next;
-            counter++;
+        let current = this.head;
+
+        while (current !== null) {
+            console.log(current.value);
+            current = current.next;
         }
+    }
+
+    // Insert at beginning
+    insertAtStart(val) {
+        const newNode = {
+            value: val,
+            next: this.head
+        };
+
+        this.head = newNode;
+        this.size++;
     }
 }
 
@@ -34,6 +47,7 @@ list.addNode(30);
 list.addNode(50);
 list.addNode(70);
 list.addNode(10);
-list.traverse();
 
-// console.log(list);
+list.insertAtStart(27);
+
+list.traverse();
